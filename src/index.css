@@ -19,4 +19,11 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  gap: 5px;
+}
+
+.estiloInput {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
 }

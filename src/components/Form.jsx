@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { TodoList } from "./Todo";
 
-export const Formulary = () => {
+export const Formulary = ({setTasks}) => {
   const [inputValues, setInputValues] = useState({
     input1: "",
     input2: "",
@@ -19,6 +20,11 @@ export const Formulary = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    // onNotechange De Todo.js
+    setTasks((prev)=>{
+      // prev.push(inputValues);
+      return [...prev, inputValues]
+    })
     // Aquí todo list, renderiza la lista de tareas
     console.log(inputValues);
   };
@@ -47,7 +53,7 @@ export const Formulary = () => {
 
         <div className="divFiltro" >
             <label>Priority:</label>
-            <select>
+            <select className="estiloInput"       name="input2" onChange={handleInputChange} >
                <option value="Low" >Low</option>
                <option value="Medium" >Medium</option>
                <option value="High" >High</option>
@@ -55,15 +61,17 @@ export const Formulary = () => {
             
             <label>Deadline:</label>
             <input
-                style={{}}
+                className="estiloInput"
                 type="date"
                 name="input3"
                 value={inputValues.input3}
                 onChange={handleInputChange}
                 
+                
             />
             <label>Tag:</label>
             <input
+                className="estiloInput"
                 type="text"
                 name="input4"
                 value={inputValues.input4}
